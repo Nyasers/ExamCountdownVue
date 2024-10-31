@@ -1,47 +1,62 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Clock from './components/Clock.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div id="container">
+    <ul id="main">
+      <li id="current" class="text"></li>
+      <li id="counter">
+        <Clock />
+      </li>
+      <li>
+        <ol id="future" class="text"></ol>
+      </li>
+    </ul>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+#container {
+  position: absolute;
+  left: 0px;
+  top: 150px;
+  width: 1000px;
+  height: 320px;
+  background-repeat: no-repeat;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+ul#main {
+  list-style: none;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+#counter {
+  position: absolute;
+  left: 0px;
+  top: 200px;
+  width: 771px;
+  height: 190px;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.text {
+  position: absolute;
+  text-align: left;
+  line-height: 50px;
+  font-size: 28px;
+  color: var(--fontColor);
+  padding-left: 10px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+li#current {
+  top: 130px;
+  left: 20px;
+  width: auto;
+}
+
+ol#future {
+  top: 350px;
+  left: 20px;
+  width: auto;
+  list-style: cjk-ideographic inside;
 }
 </style>
